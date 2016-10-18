@@ -536,14 +536,18 @@ public class Resultado1 extends javax.swing.JFrame {
                         }
                         
                         modelo.setValueAt((acum),h,(cantm+8));
-                        modelo.setValueAt((macum),h,(cantm+9));
+                        //modelo.setValueAt((macum),h,(cantm+9));
                         h=h+1;//agrega una nueva fila 
                         
                         
                 }
-            }          
+            }
+            for(int j=0;j<h;j=j+1)
+            {
+                modelo.setValueAt((macum),j,(cantm+9));
+            }
         }
-       
+        
         jTable1.setModel(modelo);//se crea el modelo con los datos
     }//GEN-LAST:event_jButton4ActionPerformed
 
