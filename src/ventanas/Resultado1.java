@@ -503,9 +503,10 @@ public class Resultado1 extends javax.swing.JFrame {
                 if(aux==aux2) //si son iguales el horario del trabajador y el buscado
                 {
                         cantm=0;
+                        acum=0;
                         fila=new ArrayList();
                         obtenert(fila,Trabajador.Trabajadores,i);
-                        macum=mpromedio(fila,Trabajador.Trabajadores);
+                        //macum=mpromedio(fila,Trabajador.Trabajadores);
                         Object[] obj=new Object[indices.size()+1];//cantidad de indices
                         modelo.addRow(obj);
                         
@@ -529,14 +530,16 @@ public class Resultado1 extends javax.swing.JFrame {
                             acum=0;
                         }
                         
-                        modelo.setValueAt((acum),h,(cantm+8));
-                        modelo.setValueAt((macum),h,(cantm+9));
-                        h=h+1;//agrega una nueva fila 
-                        
                         if(acum>=macum)
                         {
                             macum=acum;
                         }
+                        
+                        modelo.setValueAt((acum),h,(cantm+8));
+                        modelo.setValueAt((macum),h,(cantm+9));
+                        h=h+1;//agrega una nueva fila 
+                        
+                        
                 }
             }          
         }
