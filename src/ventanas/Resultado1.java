@@ -35,7 +35,7 @@ public class Resultado1 extends javax.swing.JFrame {
     public static int mprom=0;
     public static ArrayList <Trabajador> Ttablas=new ArrayList <Trabajador>();
 //private ArrayList<T> lista= new ArrayList<T>()
-    public static void obtenert(ArrayList fila,  Trabajadores,int i )
+    public static void obtenert(ArrayList fila, ArrayList Trabajadores,int i )
     {
                        
                         fila.add(Trabajador.Trabajadores.get(i).getRut());
@@ -552,7 +552,7 @@ public class Resultado1 extends javax.swing.JFrame {
             {
                 Ttablas.get(i).setIndicador(mprom-(Ttablas.get(i).getPromedio()));
                 fila=new ArrayList();
-                obtenert(fila,Ttablas.get(i),i);
+                //obtenert(fila,Ttablas.get(i),i);
                 System.out.println("indicador = "+ Ttablas.get(i).getIndicador());
                 for(int j=0;j<Ttablas.size();j=j+1)
                 {
