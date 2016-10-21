@@ -103,27 +103,27 @@ public class Csv extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try 
         {        
-            CsvReader products = new CsvReader("C:/Users/Niko/Desktop/Camino2.csv");            
+            CsvReader products = new CsvReader("C:/Users/Niko/Desktop/Camino4 (2).csv");            
             products.readHeaders();  
            
               DefaultTableModel modelo=new DefaultTableModel();
-              for(int i=0;i<5;i=i+1)
+              for(int i=0;i<6;i=i+1)
               {
                 modelo.addColumn(Lista.campos[i]);
               }
               jTable1.setModel(modelo);
-           int con=1;
-            while (products.readRecord())
-            {  
+              int con=1;
+              while (products.readRecord())
+              {  
                 con=con+1;
                 String Rut = products.get("Rut");
                 String Apellido = products.get("Apellido");
-                String Nombre = products.get("Nombre");
+                String Nombre = products.get("Nombres");
                 String Cargo= products.get("Cargo");
                 String Tripulacion=products.get("Tripulacion");
                 String Horario=products.get("Horario");
-                String Tipo=products.get("Tipo");
-                String Servicio=products.get("Servicio");
+                String Tipo=products.get("Tipo Servicio");
+                String Unegocio=products.get("Unidad de Negocio");
                 
                 //System.out.println("año 2013");
                 //System.out.println("fila "+con);
@@ -153,7 +153,7 @@ public class Csv extends javax.swing.JFrame {
                  //System.out.println(products.get("201312"));
                 
                  //System.out.println("año 2014");
-                 int enero2014=Integer.parseInt(products.get("201401"));
+                int enero2014=Integer.parseInt(products.get("201401"));
                  //System.out.println(products.get("201401"));
                 int febrero2014=Integer.parseInt(products.get("201402"));
                  //System.out.println(products.get("201402"));
@@ -230,10 +230,9 @@ public class Csv extends javax.swing.JFrame {
                 int diciembre2016=Integer.parseInt(products.get("201612"));
                  //System.out.println(products.get("201612"));
                 
-                Trabajador nuevo=new Trabajador(Rut,Apellido,Nombre,Cargo,Tripulacion,Horario,Tipo,Servicio,enero2013,febrero2013,marzo2013,abril2013,mayo2013,junio2013,julio2013,agosto2013,septiembre2013,octubre2013,noviembre2013,diciembre2013,enero2014,febrero2014,marzo2014,abril2014,mayo2014,junio2014,julio2014,agosto2014,septiembre2014,octubre2014,noviembre2014,diciembre2014,enero2015,febrero2015,marzo2015,abril2015,mayo2015,junio2015,julio2015,agosto2015,septiembre2015,octubre2015,noviembre2015,diciembre2015,enero2016,febrero2016,marzo2016,abril2016,mayo2016,junio2016,julio2016,agosto2016,septiembre2016,octubre2016,noviembre2016,diciembre2016);
+                Trabajador nuevo=new Trabajador(Rut,Apellido,Nombre,Cargo,Tripulacion,Horario,Tipo,Unegocio,enero2013,febrero2013,marzo2013,abril2013,mayo2013,junio2013,julio2013,agosto2013,septiembre2013,octubre2013,noviembre2013,diciembre2013,enero2014,febrero2014,marzo2014,abril2014,mayo2014,junio2014,julio2014,agosto2014,septiembre2014,octubre2014,noviembre2014,diciembre2014,enero2015,febrero2015,marzo2015,abril2015,mayo2015,junio2015,julio2015,agosto2015,septiembre2015,octubre2015,noviembre2015,diciembre2015,enero2016,febrero2016,marzo2016,abril2016,mayo2016,junio2016,julio2016,agosto2016,septiembre2016,octubre2016,noviembre2016,diciembre2016);
                 Trabajador.Trabajadores.add(nuevo);
-                
-                modelo.addRow(new Object[]{nuevo.getRut(),nuevo.getApellido(),nuevo.getNombre(),nuevo.getCargo(),nuevo.getTripulacion()});                
+                modelo.addRow(new Object[]{nuevo.getRut(),nuevo.getApellido(),nuevo.getNombre(),nuevo.getCargo(),nuevo.getTripulacion(),nuevo.getHorario()});                
 
             }
            

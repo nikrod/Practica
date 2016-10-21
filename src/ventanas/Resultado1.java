@@ -29,9 +29,13 @@ public class Resultado1 extends javax.swing.JFrame {
     public static ArrayList <String> columnas=new ArrayList<String>();
     public static ArrayList <Integer> indices=new ArrayList<Integer>(); //arreglo para guardar los indices del combobox
     public static ArrayList <String> fila;
-    public static ArrayList <String> filafinal=new ArrayList<String>();
+    public static ArrayList <String> horarioc=new ArrayList<String>();
+    public static ArrayList <Integer> Referentes=new ArrayList <Integer>();
+    public static int buscar=0;
+    public static int mprom=0;
+    public static ArrayList <Trabajador> Ttablas=new ArrayList <Trabajador>();
 //private ArrayList<T> lista= new ArrayList<T>()
-    public static void obtenert(ArrayList fila, ArrayList Trabajadores,int i )
+    public static void obtenert(ArrayList fila,  Trabajadores,int i )
     {
                        
                         fila.add(Trabajador.Trabajadores.get(i).getRut());
@@ -89,44 +93,12 @@ public class Resultado1 extends javax.swing.JFrame {
                         fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getSeptiembre2016()));
                         fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getOctubre2016()));
                         fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getNoviembre2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getDiciembre2016()));       
+                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getDiciembre2016())); 
+                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getPromedio()));
+                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getIndicador()));
+                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getIndicador()));
     }
-    
-    public static int mpromedio(ArrayList fila, ArrayList Trabajadores)
-    {
-        ArrayList fila2=new ArrayList ();
-        int promedio=0;
-        int aux=0;
-        int mpromedio=0;
         
-        for(int i=0;i<Trabajadores.size();i=i+1)
-        {
-            obtenert(fila2,Trabajadores,i);
-            for(int j=8;j<indices.size();j=j+1)
-            {
-                promedio=Integer.parseInt((String) fila2.get(indices.get(j)))+promedio;
-                aux=aux+1;
-            }
-            
-            if(aux!=0)
-            {
-                promedio=promedio/aux;
-            }
-            else
-            {
-                aux=0;
-            }
-            
-            if(promedio>=mpromedio)
-            {
-                mpromedio=promedio;
-            }
-        }
-        
-    return mpromedio;
-    }
-    
-    
     public Resultado1() 
     {
         initComponents();
@@ -138,26 +110,59 @@ public class Resultado1 extends javax.swing.JFrame {
         jLabelRut.setVisible(false);
         jLabelHorario.setVisible(false);
         
+        
         jComboBox1.addItem("Horario");
         jComboBox1.addItem("Busqueda por Rut - Horario");
         jComboBox1.addItem("Busqueda por Rut - Producciones");
-        jComboBox3.addItem("1");
-        jComboBox3.addItem("2");
         
+        for(int i=0;i<Trabajadores.size();i=i+1) //llenando el combobox3 para seleccionar el horario sin que se repitan los terminos
+        {
+                //System.out.println(Trabajadores.get(i).getHorario());
+                if(horarioc.size()==0)
+                {
+                    horarioc.add(Trabajadores.get(i).getHorario().toString());                
+                }
+                else
+                {
+                    int j=0;
+                    while(j<horarioc.size())
+                    {    
+                        if(Trabajadores.get(i).getHorario().toString().compareTo(horarioc.get(j).toString())==0)//si son diferentes
+                        {   
+                            
+                            j=horarioc.size()+1;
+                        }
+                        else
+                        {
+                            j=j+1;
+                        }
+                    }
+                    if(j==horarioc.size())
+                    {
+                        //System.out.println("entra ");
+                        horarioc.add(Trabajadores.get(i).getHorario().toString());
+                    }
+                }
+        }
+        
+        for(int i=0;i<horarioc.size();i=i+1) //se carga la lista con los horarios en el combobox
+        {
+            jComboBox3.addItem(horarioc.get(i));
+        }
+ 
         int cont=0;//contador para saber a que correpsonde cada indice
         
         for(int i=0;i<8;i=i+1)
         {
             columnas.add(Lista.campos[i]); //agregando columnas a la tabla
             indices.add(i);
+            
         }
         
         for(int i=8;i<(Lista.campos.length);i=i+1) //cargando campos a combobox que lista todos los campos a elegir
         {
             jComboBox2.addItem(Lista.campos[i]);
         }
-        
-       
     }
 
     /**
@@ -200,6 +205,7 @@ public class Resultado1 extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -211,6 +217,8 @@ public class Resultado1 extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.setColumnSelectionAllowed(false);
+        jTable1.setEditingColumn(0);
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -454,14 +462,13 @@ public class Resultado1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
         DefaultTableModel modelo=new DefaultTableModel();//se crea el modelo que se cargara en la tabla
-        int h=0;//cantidad de filas
-        int acum=0;//acumulador para promedio
-        int macum=0;//mejor promedio
-        //int aux3=0;//
-        int cantm=0;//cntidad de meses
-        //Class<? extends Trabajador> objeto=Trabajador.Trabajadores.get(0).getClass();
+        int acum=0;
+        int cantm=0;
+        
+        
+        //Referentes=new ArrayList ();
         
         if(jComboBox1.getSelectedItem()=="Busqueda por Rut - Horario")
         {    
@@ -469,60 +476,60 @@ public class Resultado1 extends javax.swing.JFrame {
             //modelo.addRow(new Object[]{nuevo.getRut(),nuevo.getApellido(),nuevo.getNombre(),nuevo.getCargo(),nuevo.getTripulacion()});  
         }
         else if(jComboBox1.getSelectedItem()=="Busqueda por Rut - Producciones")
-        {     
-        
-                   
+        {          
             //modelo.addRow(new Object[]{nuevo.getRut(),nuevo.getApellido(),nuevo.getNombre(),nuevo.getCargo(),nuevo.getTripulacion()});       
         }        
         else if(jComboBox1.getSelectedItem()=="Horario")
         {
             for(int i=0;i<columnas.size();i=i+1)
             {
-                modelo.addColumn(columnas.get(i));
+                modelo.addColumn(columnas.get(i));//se gregan las columnas al modelo
             }
-            modelo.addColumn("Promedio");
-            modelo.addColumn("Mejor Promedio");
-                        
+            
+             if(buscar==0)
+            {
+                fila=new ArrayList();
+                obtenert(fila,Trabajador.Trabajadores,1);
+                modelo.addColumn("Promedio");//se agrega la columna promedio
+                indices.add((fila.size()-3));
+                modelo.addColumn("Mejor Promedio");
+                indices.add((fila.size()-2));
+                modelo.addColumn("Indicador");//se agrega la columna mejor promedio    
+                indices.add((fila.size()-1));
+                buscar=1;
+            }
+            
             for(int i=0;i<Trabajador.Trabajadores.size();i=i+1)
             {
-                //System.out.println("Horario trabajador "+ Trabajador.Trabajadores.get(i).getHorario()+ "horario Combobox "+ jComboBox3.getSelectedItem());
-                int aux;
-                int aux2;
-                
+                String aux;//variable para guardar el horario del trabajador
+                String aux2;//variable para guardar el horario a buscar
                 if(Trabajador.Trabajadores.get(i).getHorario().compareTo("")==0) //si el horario esta vaio remplazar por 0
                 {
-                   aux=0;  
+                    aux="0";  
                 }
                 else
                 {
-                    aux=Integer.parseInt(Trabajador.Trabajadores.get(i).getHorario());
+                    aux=Trabajador.Trabajadores.get(i).getHorario().toString();
+                    //se guarda el horario del trabajador
                 }
-                
-                aux2=Integer.parseInt(jComboBox3.getSelectedItem().toString()); //variable aux2 para poder comparar el horario
-                
-                if(aux==aux2) //si son iguales el horario del trabajador y el buscado
+                aux2=jComboBox3.getSelectedItem().toString(); //variable aux2 para poder comparar el horario
+                if(aux.compareTo(aux2)==0) //si son iguales el horario del trabajador y el buscado
                 {
-                        cantm=0;
-                        acum=0;
                         fila=new ArrayList();
                         obtenert(fila,Trabajador.Trabajadores,i);
-                        //macum=mpromedio(fila,Trabajador.Trabajadores);
                         Object[] obj=new Object[indices.size()+1];//cantidad de indices
-                        modelo.addRow(obj);
+                        modelo.addRow(obj);        
+                        acum=0;
+                        cantm=0;
                         
-                        for(int j=0;j<indices.size();j=j+1)
+                        for(int j=8;j<indices.size()-3;j=j+1)
                         {
-                            modelo.setValueAt(fila.get(indices.get(j)),h,j);
-                            if(j>=8)
-                            {
-                                acum=acum+Integer.parseInt(fila.get(indices.get(j)));
-                                cantm=cantm+1;
-                                System.out.println("cantidad de meses "+cantm);
-                            }    
+                            cantm=cantm+1;
+                            acum=acum+Integer.parseInt(fila.get(j));
                         }
-
-                        if(acum!=0) //en caso de que el promedio sea 0
-                        {    
+                        
+                        if(cantm!=0)
+                        {
                             acum=acum/cantm;
                         }
                         else
@@ -530,44 +537,77 @@ public class Resultado1 extends javax.swing.JFrame {
                             acum=0;
                         }
                         
-                        if(acum>=macum)
+                        if(acum>mprom)
                         {
-                            macum=acum;
+                            mprom=acum;
                         }
                         
-                        modelo.setValueAt((acum),h,(cantm+8));
-                        //modelo.setValueAt((macum),h,(cantm+9));
-                        h=h+1;//agrega una nueva fila 
-                        
-                        
+                        System.out.println("el promedio es "+acum);
+                        Trabajador.Trabajadores.get(i).setPromedio(acum);
+                        Ttablas.add(Trabajador.Trabajadores.get(i));                    
                 }
             }
-            for(int j=0;j<h;j=j+1)
+            
+            for(int i=0;i<Ttablas.size();i=i+1)
             {
-                modelo.setValueAt((macum),j,(cantm+9));
-            }
-        }
-        
+                Ttablas.get(i).setIndicador(mprom-(Ttablas.get(i).getPromedio()));
+                fila=new ArrayList();
+                obtenert(fila,Ttablas.get(i),i);
+                System.out.println("indicador = "+ Ttablas.get(i).getIndicador());
+                for(int j=0;j<Ttablas.size();j=j+1)
+                {
+                    //modelo.setValueAt((acum),h,(cantm+8));//se modifica el campo promedio por el valor obtenido
+                }
+            } 
+            
+            //modelo.setValueAt(fila.get(indices.get(i)),j,i);
+            //modelo.setValueAt(Ttablas.get(j).getPromedio(),j,(cantm+8));
+            //modelo.setValueAt((macum),j,(cantm+9));
+            //modelo.setValueAt(Ttablas.get(j).getIndicador(),j,(cantm+10));
+         }
         jTable1.setModel(modelo);//se crea el modelo con los datos
+        //jTable1.setDefaultRenderer(Object.class, new TableCellRendererColor(macum));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
-    
     DefaultListModel modelo = new DefaultListModel(); 
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling co,de here:
-        columnas.add(jComboBox2.getSelectedItem().toString());
-        indices.add(jComboBox2.getSelectedIndex()+8);
-        modelo.addElement(jComboBox2.getSelectedItem());
-        jList1.setModel(modelo);
-        
+            if(buscar>0)
+            {
+                fila=new ArrayList();
+                int aux=indices.size()-1;
+                obtenert(fila,Trabajador.Trabajadores,1);
+                indices.remove(aux-1);
+                //modelo.addColumn("Mejor Promedio");
+                indices.remove(aux-2);
+                //modelo.addColumn("Indicador");//se agrega la columna mejor promedio    
+                indices.remove((aux-3));
+            }
+            columnas.add(jComboBox2.getSelectedItem().toString());
+            indices.add(jComboBox2.getSelectedIndex()+8);
+            modelo.addElement(jComboBox2.getSelectedItem());
+            jList1.setModel(modelo);
+            buscar=0;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        if(buscar>0)
+            {
+                fila=new ArrayList();
+                int aux=indices.size()-1;
+                obtenert(fila,Trabajador.Trabajadores,1);
+                indices.remove(aux-1);
+                //modelo.addColumn("Mejor Promedio");
+                indices.remove(aux-2);
+                //modelo.addColumn("Indicador");//se agrega la columna mejor promedio    
+                indices.remove((aux-3));
+            }
+        
         for(int i=0;i<columnas.size();i=i+1)
         {
             if(columnas.get(i)==jList1.getSelectedValue())
@@ -575,7 +615,7 @@ public class Resultado1 extends javax.swing.JFrame {
                 columnas.remove(i);//se elimina el campo seleccionado
                 indices.remove(i);
             }
-            
+            buscar=0;
         }
         modelo.remove(jList1.getSelectedIndex());//se borra el elemento del jlist
     }//GEN-LAST:event_jButton6ActionPerformed
