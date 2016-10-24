@@ -63,10 +63,6 @@ public class Trabajador
         return Tipo;
     }
 
-    public String getServicio() {
-        return Servicio;
-    }
-
     public int getEnero2013() {
         return enero2013;
     }
@@ -291,9 +287,6 @@ public class Trabajador
         this.Tipo = Tipo;
     }
 
-    public void setServicio(String Servicio) {
-        this.Servicio = Servicio;
-    }
 
     public void setEnero2013(int enero2013) {
         this.enero2013 = enero2013;
@@ -493,7 +486,7 @@ public class Trabajador
         this.Unegocio = Unegocio;
     }
     
-    public Trabajador(String Rut, String Apellido, String Nombre, String Cargo, String Tripulacion, String Horario, String Tipo, String Servicio, int enero2013, int febrero2013, int marzo2013, int abril2013, int mayo2013, int junio2013, int julio2013, int agosto2013, int septiembre2013, int octubre2013, int noviembre2013, int diciembre2013, int enero2014, int febrero2014, int marzo2014, int abril2014, int mayo2014, int junio2014, int julio2014, int agosto2014, int septiembre2014, int octubre2014, int noviembre2014, int diciembre2014, int enero2015, int febrero2015, int marzo2015, int abril2015, int mayo2015, int junio2015, int julio2015, int agosto2015, int septiembre2015, int octubre2015, int noviembre2015, int diciembre2015, int enero2016, int febrero2016, int marzo2016, int abril2016, int mayo2016, int junio2016, int julio2016, int agosto2016, int septiembre2016, int octubre2016, int noviembre2016, int diciembre2016) {
+    public Trabajador(String Rut, String Apellido, String Nombre, String Cargo, String Tripulacion, String Horario, String Tipo,String Unegocio, int enero2013, int febrero2013, int marzo2013, int abril2013, int mayo2013, int junio2013, int julio2013, int agosto2013, int septiembre2013, int octubre2013, int noviembre2013, int diciembre2013, int enero2014, int febrero2014, int marzo2014, int abril2014, int mayo2014, int junio2014, int julio2014, int agosto2014, int septiembre2014, int octubre2014, int noviembre2014, int diciembre2014, int enero2015, int febrero2015, int marzo2015, int abril2015, int mayo2015, int junio2015, int julio2015, int agosto2015, int septiembre2015, int octubre2015, int noviembre2015, int diciembre2015, int enero2016, int febrero2016, int marzo2016, int abril2016, int mayo2016, int junio2016, int julio2016, int agosto2016, int septiembre2016, int octubre2016, int noviembre2016, int diciembre2016) {
         this.Rut = Rut;
         this.Apellido = Apellido;
         this.Nombre = Nombre;
@@ -501,7 +494,7 @@ public class Trabajador
         this.Tripulacion = Tripulacion;
         this.Horario = Horario;
         this.Tipo = Tipo;
-        this.Servicio = Servicio;
+        this.Unegocio=Unegocio;
         this.enero2013 = enero2013;
         this.febrero2013 = febrero2013;
         this.marzo2013 = marzo2013;
@@ -561,7 +554,6 @@ public class Trabajador
         this.Tripulacion = "";
         this.Horario = "";
         this.Tipo = "";
-        this.Servicio = "";
         this.Unegocio = "";
         this.enero2013 = 0;
         this.febrero2013 = 0;
@@ -624,7 +616,6 @@ public class Trabajador
     private String Tripulacion;
     private String Horario;
     private String Tipo;
-    private String Servicio;
     private String Unegocio;
                  
     private int enero2013;

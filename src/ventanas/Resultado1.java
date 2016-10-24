@@ -35,68 +35,67 @@ public class Resultado1 extends javax.swing.JFrame {
     public static int mprom=0;
     public static ArrayList <Trabajador> Ttablas=new ArrayList <Trabajador>();
 //private ArrayList<T> lista= new ArrayList<T>()
-    public static void obtenert(ArrayList fila, ArrayList Trabajadores,int i )
+    public static void obtenert(ArrayList fila, Trabajador T)
     {
-                       
-                        fila.add(Trabajador.Trabajadores.get(i).getRut());
-                        fila.add( Trabajador.Trabajadores.get(i).getApellido()); 
-                        fila.add(Trabajador.Trabajadores.get(i).getNombre());
-                        fila.add(Trabajador.Trabajadores.get(i).getCargo());
-                        fila.add(Trabajador.Trabajadores.get(i).getTripulacion());
-                        fila.add(Trabajador.Trabajadores.get(i).getHorario());
-                        fila.add(Trabajador.Trabajadores.get(i).getTipo());
-                        fila.add(Trabajador.Trabajadores.get(i).getServicio());
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getEnero2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getFebrero2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMarzo2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAbril2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMayo2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJunio2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJulio2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAgosto2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getSeptiembre2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getOctubre2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getNoviembre2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getDiciembre2013()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getEnero2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getFebrero2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMarzo2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAbril2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMayo2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJunio2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJulio2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAgosto2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getSeptiembre2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getOctubre2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getNoviembre2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getDiciembre2014()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getEnero2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getFebrero2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMarzo2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAbril2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMayo2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJunio2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJulio2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAgosto2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getSeptiembre2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getOctubre2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getNoviembre2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getDiciembre2015()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getEnero2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getFebrero2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMarzo2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAbril2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getMayo2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJunio2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getJulio2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getAgosto2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getSeptiembre2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getOctubre2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getNoviembre2016()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getDiciembre2016())); 
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getPromedio()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getIndicador()));
-                        fila.add(Integer.toString(Trabajador.Trabajadores.get(i).getIndicador()));
+        fila.add(T.getRut());
+                        fila.add( T.getApellido()); 
+                        fila.add(T.getNombre());
+                        fila.add(T.getCargo());
+                        fila.add(T.getTripulacion());
+                        fila.add(T.getHorario());
+                        fila.add(T.getTipo());
+                        fila.add(T.getUnegocio());
+                        fila.add(Integer.toString(T.getEnero2013()));
+                        fila.add(Integer.toString(T.getFebrero2013()));
+                        fila.add(Integer.toString(T.getMarzo2013()));
+                        fila.add(Integer.toString(T.getAbril2013()));
+                        fila.add(Integer.toString(T.getMayo2013()));
+                        fila.add(Integer.toString(T.getJunio2013()));
+                        fila.add(Integer.toString(T.getJulio2013()));
+                        fila.add(Integer.toString(T.getAgosto2013()));
+                        fila.add(Integer.toString(T.getSeptiembre2013()));
+                        fila.add(Integer.toString(T.getOctubre2013()));
+                        fila.add(Integer.toString(T.getNoviembre2013()));
+                        fila.add(Integer.toString(T.getDiciembre2013()));
+                        fila.add(Integer.toString(T.getEnero2014()));
+                        fila.add(Integer.toString(T.getFebrero2014()));
+                        fila.add(Integer.toString(T.getMarzo2014()));
+                        fila.add(Integer.toString(T.getAbril2014()));
+                        fila.add(Integer.toString(T.getMayo2014()));
+                        fila.add(Integer.toString(T.getJunio2014()));
+                        fila.add(Integer.toString(T.getJulio2014()));
+                        fila.add(Integer.toString(T.getAgosto2014()));
+                        fila.add(Integer.toString(T.getSeptiembre2014()));
+                        fila.add(Integer.toString(T.getOctubre2014()));
+                        fila.add(Integer.toString(T.getNoviembre2014()));
+                        fila.add(Integer.toString(T.getDiciembre2014()));
+                        fila.add(Integer.toString(T.getEnero2015()));
+                        fila.add(Integer.toString(T.getFebrero2015()));
+                        fila.add(Integer.toString(T.getMarzo2015()));
+                        fila.add(Integer.toString(T.getAbril2015()));
+                        fila.add(Integer.toString(T.getMayo2015()));
+                        fila.add(Integer.toString(T.getJunio2015()));
+                        fila.add(Integer.toString(T.getJulio2015()));
+                        fila.add(Integer.toString(T.getAgosto2015()));
+                        fila.add(Integer.toString(T.getSeptiembre2015()));
+                        fila.add(Integer.toString(T.getOctubre2015()));
+                        fila.add(Integer.toString(T.getNoviembre2015()));
+                        fila.add(Integer.toString(T.getDiciembre2015()));
+                        fila.add(Integer.toString(T.getEnero2016()));
+                        fila.add(Integer.toString(T.getFebrero2016()));
+                        fila.add(Integer.toString(T.getMarzo2016()));
+                        fila.add(Integer.toString(T.getAbril2016()));
+                        fila.add(Integer.toString(T.getMayo2016()));
+                        fila.add(Integer.toString(T.getJunio2016()));
+                        fila.add(Integer.toString(T.getJulio2016()));
+                        fila.add(Integer.toString(T.getAgosto2016()));
+                        fila.add(Integer.toString(T.getSeptiembre2016()));
+                        fila.add(Integer.toString(T.getOctubre2016()));
+                        fila.add(Integer.toString(T.getNoviembre2016()));
+                        fila.add(Integer.toString(T.getDiciembre2016())); 
+                        fila.add(Integer.toString(T.getPromedio()));
+                        fila.add(Integer.toString(T.getIndicador()));
+
     }
         
     public Resultado1() 
@@ -466,10 +465,8 @@ public class Resultado1 extends javax.swing.JFrame {
         DefaultTableModel modelo=new DefaultTableModel();//se crea el modelo que se cargara en la tabla
         int acum=0;
         int cantm=0;
-        
-        
-        //Referentes=new ArrayList ();
-        
+        Ttablas=new ArrayList();
+        //Referentes=new ArrayList ();        
         if(jComboBox1.getSelectedItem()=="Busqueda por Rut - Horario")
         {    
             
@@ -484,18 +481,18 @@ public class Resultado1 extends javax.swing.JFrame {
             for(int i=0;i<columnas.size();i=i+1)
             {
                 modelo.addColumn(columnas.get(i));//se gregan las columnas al modelo
+                System.out.println(columnas.get(i));
             }
+            modelo.addColumn("Promedio");
+            modelo.addColumn("Indicador");
+            modelo.addColumn("Mejor Promedio");
             
-             if(buscar==0)
+            if(buscar==0)
             {
                 fila=new ArrayList();
-                obtenert(fila,Trabajador.Trabajadores,1);
-                modelo.addColumn("Promedio");//se agrega la columna promedio
-                indices.add((fila.size()-3));
-                modelo.addColumn("Mejor Promedio");
-                indices.add((fila.size()-2));
-                modelo.addColumn("Indicador");//se agrega la columna mejor promedio    
-                indices.add((fila.size()-1));
+                obtenert(fila,Trabajador.Trabajadores.get(0));
+                indices.add((fila.size()-2));//agrego el numero de indice de promedio
+                indices.add((fila.size()-1));//agrego numero de indice de indicador                        
                 buscar=1;
             }
             
@@ -516,13 +513,13 @@ public class Resultado1 extends javax.swing.JFrame {
                 if(aux.compareTo(aux2)==0) //si son iguales el horario del trabajador y el buscado
                 {
                         fila=new ArrayList();
-                        obtenert(fila,Trabajador.Trabajadores,i);
+                        obtenert(fila,Trabajador.Trabajadores.get(i));
                         Object[] obj=new Object[indices.size()+1];//cantidad de indices
                         modelo.addRow(obj);        
                         acum=0;
                         cantm=0;
                         
-                        for(int j=8;j<indices.size()-3;j=j+1)
+                        for(int j=8;j<indices.size()-2;j=j+1)
                         {
                             cantm=cantm+1;
                             acum=acum+Integer.parseInt(fila.get(j));
@@ -542,7 +539,7 @@ public class Resultado1 extends javax.swing.JFrame {
                             mprom=acum;
                         }
                         
-                        System.out.println("el promedio es "+acum);
+                        //System.out.println("el promedio es "+acum);
                         Trabajador.Trabajadores.get(i).setPromedio(acum);
                         Ttablas.add(Trabajador.Trabajadores.get(i));                    
                 }
@@ -551,22 +548,18 @@ public class Resultado1 extends javax.swing.JFrame {
             for(int i=0;i<Ttablas.size();i=i+1)
             {
                 Ttablas.get(i).setIndicador(mprom-(Ttablas.get(i).getPromedio()));
+                //System.out.println(Ttablas.get(i).getPromedio());
                 fila=new ArrayList();
-                //obtenert(fila,Ttablas.get(i),i);
-                System.out.println("indicador = "+ Ttablas.get(i).getIndicador());
-                for(int j=0;j<Ttablas.size();j=j+1)
+                obtenert(fila,Ttablas.get(i));
+                //System.out.println("indicador = "+ fila.get(8));
+                for(int j=0;j<indices.size();j=j+1)
                 {
-                    //modelo.setValueAt((acum),h,(cantm+8));//se modifica el campo promedio por el valor obtenido
+                    System.out.println(fila.get(indices.get(j)));
+                    //modelo.setValueAt(fila.get(indices.get(j)),i,j);//se modifica el campo promedio por el valor obtenido
                 }
             } 
-            
-            //modelo.setValueAt(fila.get(indices.get(i)),j,i);
-            //modelo.setValueAt(Ttablas.get(j).getPromedio(),j,(cantm+8));
-            //modelo.setValueAt((macum),j,(cantm+9));
-            //modelo.setValueAt(Ttablas.get(j).getIndicador(),j,(cantm+10));
          }
         jTable1.setModel(modelo);//se crea el modelo con los datos
-        //jTable1.setDefaultRenderer(Object.class, new TableCellRendererColor(macum));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -576,16 +569,13 @@ public class Resultado1 extends javax.swing.JFrame {
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling co,de here:
-            if(buscar>0)
+            if(buscar>0)//condicion para saber si ya se ejecuto el buscar
             {
                 fila=new ArrayList();
-                int aux=indices.size()-1;
-                obtenert(fila,Trabajador.Trabajadores,1);
-                indices.remove(aux-1);
-                //modelo.addColumn("Mejor Promedio");
+                int aux=indices.size();
+                obtenert(fila,Trabajador.Trabajadores.get(0));
+                indices.remove(aux-1);//se elimina la columna del promedio y del indicador
                 indices.remove(aux-2);
-                //modelo.addColumn("Indicador");//se agrega la columna mejor promedio    
-                indices.remove((aux-3));
             }
             columnas.add(jComboBox2.getSelectedItem().toString());
             indices.add(jComboBox2.getSelectedIndex()+8);
@@ -599,13 +589,10 @@ public class Resultado1 extends javax.swing.JFrame {
         if(buscar>0)
             {
                 fila=new ArrayList();
-                int aux=indices.size()-1;
-                obtenert(fila,Trabajador.Trabajadores,1);
+                int aux=indices.size();
+                obtenert(fila,Trabajador.Trabajadores.get(0));
                 indices.remove(aux-1);
-                //modelo.addColumn("Mejor Promedio");
                 indices.remove(aux-2);
-                //modelo.addColumn("Indicador");//se agrega la columna mejor promedio    
-                indices.remove((aux-3));
             }
         
         for(int i=0;i<columnas.size();i=i+1)
