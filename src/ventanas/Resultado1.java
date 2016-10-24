@@ -481,7 +481,7 @@ public class Resultado1 extends javax.swing.JFrame {
             for(int i=0;i<columnas.size();i=i+1)
             {
                 modelo.addColumn(columnas.get(i));//se gregan las columnas al modelo
-                System.out.println(columnas.get(i));
+                //System.out.println(columnas.get(i));
             }
             modelo.addColumn("Promedio");
             modelo.addColumn("Indicador");
@@ -544,6 +544,7 @@ public class Resultado1 extends javax.swing.JFrame {
                         Ttablas.add(Trabajador.Trabajadores.get(i));                    
                 }
             }
+            //System.out.println("el mejor promedio es: "+mprom);
             
             for(int i=0;i<Ttablas.size();i=i+1)
             {
@@ -552,12 +553,17 @@ public class Resultado1 extends javax.swing.JFrame {
                 fila=new ArrayList();
                 obtenert(fila,Ttablas.get(i));
                 //System.out.println("indicador = "+ fila.get(8));
-                for(int j=0;j<indices.size();j=j+1)
+                int aux3=0;
+                while(aux3<indices.size())
                 {
-                    System.out.println(fila.get(indices.get(j)));
-                    //modelo.setValueAt(fila.get(indices.get(j)),i,j);//se modifica el campo promedio por el valor obtenido
+                    //System.out.println(fila.get(indices.get(j)));
+                    modelo.setValueAt(fila.get(indices.get(aux3)),i,aux3);//se modifica el campo promedio por el valor obtenido
+                    aux3=aux3+1;
                 }
+                modelo.setValueAt(mprom,i,aux3);
             } 
+            
+           
          }
         jTable1.setModel(modelo);//se crea el modelo con los datos
     }//GEN-LAST:event_jButton4ActionPerformed
