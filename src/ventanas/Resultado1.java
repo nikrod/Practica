@@ -465,6 +465,7 @@ public class Resultado1 extends javax.swing.JFrame {
         DefaultTableModel modelo=new DefaultTableModel();//se crea el modelo que se cargara en la tabla
         int acum=0;
         int cantm=0;
+        mprom=0;
         Ttablas=new ArrayList();
         //Referentes=new ArrayList ();        
         if(jComboBox1.getSelectedItem()=="Busqueda por Rut - Horario")
@@ -528,6 +529,7 @@ public class Resultado1 extends javax.swing.JFrame {
                         if(cantm!=0)
                         {
                             acum=acum/cantm;
+                            System.out.println("promedio "+acum);
                         }
                         else
                         {
