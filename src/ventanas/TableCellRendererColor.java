@@ -7,6 +7,7 @@ package ventanas;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -15,25 +16,22 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author Niko
  */
 public class TableCellRendererColor extends DefaultTableCellRenderer{
-    private Component componente;
-    private int cont=0;
-    public TableCellRendererColor(int acum)
-    {
-    
-    
-    }
+
     @Override
-        public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
-        componente=super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
+    public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
         
-        String col10 =jtable.getValueAt(i,Resultado1.Referentes.get(2)).toString();
-        if(col10==Resultado1.Referentes.get(1).toString())
+        if(i%2==0)
         {
-            setBackground(Color.GREEN);
+            setBackground(Color.GREEN);          
         }
-        System.out.println(col10);
+        else
+        {
+            setBackground(Color.RED);          
+
+        }
         
-        return  componente;//To change body of generated methods, choose Tools | Templates.
+        
+        return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

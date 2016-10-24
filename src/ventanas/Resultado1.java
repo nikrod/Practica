@@ -519,17 +519,18 @@ public class Resultado1 extends javax.swing.JFrame {
                         modelo.addRow(obj);        
                         acum=0;
                         cantm=0;
-                        
+                      
                         for(int j=8;j<indices.size()-2;j=j+1)
                         {
                             cantm=cantm+1;
-                            acum=acum+Integer.parseInt(fila.get(j));
+                            //System.out.println("cantidad acumulado "+fila.get(j+1) + " Trabajador "+i);  
+                            acum=acum+Integer.parseInt(fila.get(indices.get(j)));
                         }
                         
                         if(cantm!=0)
                         {
                             acum=acum/cantm;
-                            System.out.println("promedio "+acum);
+                            //System.out.println("promedio "+acum);
                         }
                         else
                         {
@@ -543,7 +544,8 @@ public class Resultado1 extends javax.swing.JFrame {
                         
                         //System.out.println("el promedio es "+acum);
                         Trabajador.Trabajadores.get(i).setPromedio(acum);
-                        Ttablas.add(Trabajador.Trabajadores.get(i));                    
+                        Ttablas.add(Trabajador.Trabajadores.get(i));      
+                        
                 }
             }
             //System.out.println("el mejor promedio es: "+mprom);
@@ -563,11 +565,16 @@ public class Resultado1 extends javax.swing.JFrame {
                     aux3=aux3+1;
                 }
                 modelo.setValueAt(mprom,i,aux3);
+               
+                //jTable1.setDefaultRenderer(Object.class, TableCellRendererColor());
             } 
             
            
          }
         jTable1.setModel(modelo);//se crea el modelo con los datos
+        TableCellRendererColor color=new TableCellRendererColor();
+        jTable1.setDefaultRenderer(Object.class,color);
+        //jTable1.setDefaultRenderer(Object.class, new TableCellRendererColor());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
