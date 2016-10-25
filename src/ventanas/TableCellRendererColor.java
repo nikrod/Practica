@@ -10,6 +10,7 @@ import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import static ventanas.Resultado1.indices;
 
 /**
  *
@@ -19,14 +20,29 @@ public class TableCellRendererColor extends DefaultTableCellRenderer{
 
     @Override
     public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
-        
-        if(i%2==0)
+        int aux=indices.size()-1;
+        int aux2=0;
+        if(i1==aux)
         {
-            setBackground(Color.GREEN);          
+            aux2=Integer.parseInt(jtable.getValueAt(i, aux).toString());
+
+            if(aux2==0)
+            {
+                 setBackground(Color.GREEN);
+            }   
+            else if(aux2<100000)
+            {
+                setBackground(Color.YELLOW);
+            }
+            else if(aux2>100000)
+            {
+                setBackground(Color.RED);
+            }
+            
         }
         else
         {
-            setBackground(Color.RED);          
+            setBackground(Color.WHITE);          
 
         }
         

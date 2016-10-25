@@ -471,6 +471,17 @@ public class Resultado1 extends javax.swing.JFrame {
         if(jComboBox1.getSelectedItem()=="Busqueda por Rut - Horario")
         {    
             
+            
+
+
+
+
+
+
+
+
+
+
             //modelo.addRow(new Object[]{nuevo.getRut(),nuevo.getApellido(),nuevo.getNombre(),nuevo.getCargo(),nuevo.getTripulacion()});  
         }
         else if(jComboBox1.getSelectedItem()=="Busqueda por Rut - Producciones")
