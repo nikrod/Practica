@@ -9,9 +9,12 @@ package ventanas;
 
 import java.io.IOException;
 import com.csvreader.CsvReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -47,6 +50,8 @@ public class Csv extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,7 +62,7 @@ public class Csv extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 140, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 150, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,6 +84,7 @@ public class Csv extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 510, 340));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cargar Datos");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 160, 30));
 
@@ -89,7 +95,7 @@ public class Csv extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, 140, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, 150, 90));
 
         jLabel2.setText(" ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 150, 20, -1));
@@ -97,13 +103,29 @@ public class Csv extends javax.swing.JFrame {
         jLabel3.setText("  ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 580, -1, -1));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/turbus_1.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 280, 60));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"))); // NOI18N
+        jLabel5.setText("jLabel4");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 610));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        JFileChooser dialog = new JFileChooser();
+        int opcion = dialog.showOpenDialog(Csv.this);
+
+        if (opcion == JFileChooser.APPROVE_OPTION) 
+        {
+            
+        }
+        File dir = dialog.getSelectedFile();
         try 
         {        
-            CsvReader products = new CsvReader("C:/Users/Niko/Desktop/Camino4 (2).csv");            
+            CsvReader products = new CsvReader(dir.getAbsolutePath());            
             products.readHeaders();  
            
               DefaultTableModel modelo=new DefaultTableModel();
@@ -233,21 +255,23 @@ public class Csv extends javax.swing.JFrame {
                 Trabajador nuevo=new Trabajador(Rut,Apellido,Nombre,Cargo,Tripulacion,Horario,Tipo,Unegocio,enero2013,febrero2013,marzo2013,abril2013,mayo2013,junio2013,julio2013,agosto2013,septiembre2013,octubre2013,noviembre2013,diciembre2013,enero2014,febrero2014,marzo2014,abril2014,mayo2014,junio2014,julio2014,agosto2014,septiembre2014,octubre2014,noviembre2014,diciembre2014,enero2015,febrero2015,marzo2015,abril2015,mayo2015,junio2015,julio2015,agosto2015,septiembre2015,octubre2015,noviembre2015,diciembre2015,enero2016,febrero2016,marzo2016,abril2016,mayo2016,junio2016,julio2016,agosto2016,septiembre2016,octubre2016,noviembre2016,diciembre2016);
                 Trabajador.Trabajadores.add(nuevo);
                 modelo.addRow(new Object[]{nuevo.getRut(),nuevo.getApellido(),nuevo.getNombre(),nuevo.getCargo(),nuevo.getTripulacion(),nuevo.getHorario()});                
-
+                
             }
            
-
+            JOptionPane.showMessageDialog(null, "Datos Cargados con Exito!");
             products.close();
             //System.out.println(Datos.datos);
         } 
         catch (FileNotFoundException ex) 
         {
             Logger.getLogger(Csv.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al cargar los Datos!");
         } 
         
         catch (IOException ex) 
         {
             Logger.getLogger(Csv.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al cargar los Datos!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -298,6 +322,8 @@ public class Csv extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

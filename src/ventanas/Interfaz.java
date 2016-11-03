@@ -35,7 +35,8 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
-        jFondo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -51,14 +52,14 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 90, 30));
 
         UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
-        getContentPane().add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 110, 100));
+        getContentPane().add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 110, 100));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 70, 40));
 
-        txtUser.setBackground(new java.awt.Color(51, 51, 255));
         txtUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +73,6 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel2.setText("Password:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, -1, -1));
 
-        txtPassword.setBackground(new java.awt.Color(51, 51, 255));
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 240, 30));
 
@@ -83,11 +83,14 @@ public class Interfaz extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 100, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 110, 30));
 
-        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ZhGEqAP.jpg"))); // NOI18N
-        jFondo.setText("jLabel1");
-        getContentPane().add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 460));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/turbus_1.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 70));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,9 +162,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel UserIcon;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jFondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
